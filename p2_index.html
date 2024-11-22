@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Smile</title>
+    <link rel="stylesheet" href="styles_p2.css">
+</head>
+<body>
+    <div class="header">
+        <img src="img1.jpg" alt="Dog Smile Logo" class="logo">
+        <button id="langBtn">English</button>
+    </div>
+
+    <div class="nav-menu">
+        <a href="#" id="inicio">Início</a>
+        <a href="destaque.html" id="destaque">Destaque</a>
+        <a href="catalogo.html" id="catalogo">Catálogo</a>
+    </div>
+
+    <div class="main-content">
+        <img src="img2.jpg" alt="Ilustração de menino com cachorro" class="main-image">
+        <p class="slogan" id="slogan">Uma ração especial, para um amigo fantástico!</p>
+    </div>
+
+    <div class="footer">
+        <p id="endereco">Avenida Aldebara, 123 / Tel: 91234-4578</p>
+    </div>
+
+    <script>
+        const langBtn = document.getElementById('langBtn');
+        const slogan = document.getElementById('slogan');
+        const inicio = document.getElementById('inicio');
+        const destaque = document.getElementById('destaque');
+        const catalogo = document.getElementById('catalogo');
+        const endereco = document.getElementById('endereco');
+        let isEnglish = false;
+
+        const translations = {
+            pt: {
+                inicio: 'Início',
+                destaque: 'Destaque',
+                catalogo: 'Catálogo',
+                slogan: 'Uma ração especial, para um amigo fantástico!',
+                endereco: 'Avenida Aldebara, 123 / Tel: 91234-4578',
+                btnText: 'English'
+            },
+            en: {
+                inicio: 'Home',
+                destaque: 'Featured',
+                catalogo: 'Catalog',
+                slogan: 'A special food, for a fantastic friend!',
+                endereco: 'Aldebara Avenue, 123 / Phone: 91234-4578',
+                btnText: 'Português'
+            }
+        };
+
+        langBtn.addEventListener('click', function() {
+            if (!isEnglish) {
+                alert('A página será traduzida para inglês!');
+                inicio.textContent = translations.en.inicio;
+                destaque.textContent = translations.en.destaque;
+                catalogo.textContent = translations.en.catalogo;
+                slogan.textContent = translations.en.slogan;
+                endereco.textContent = translations.en.endereco;
+                langBtn.textContent = translations.en.btnText;
+                isEnglish = true;
+            } else {
+                inicio.textContent = translations.pt.inicio;
+                destaque.textContent = translations.pt.destaque;
+                catalogo.textContent = translations.pt.catalogo;
+                slogan.textContent = translations.pt.slogan;
+                endereco.textContent = translations.pt.endereco;
+                langBtn.textContent = translations.pt.btnText;
+                isEnglish = false;
+            }
+        });
+    </script>
+</body>
+</html>
